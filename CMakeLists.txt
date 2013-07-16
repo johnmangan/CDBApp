@@ -17,17 +17,21 @@ set (HEADERS
 )
 
 set (SOURCES
-    ${CDBA_SRC_DIR}/cdbapp/ApplicationDatabaseInterface.cpp
     ${CDBA_SRC_DIR}/cdbapp/State.cpp
     ${CDBA_SRC_DIR}/cdbapp/UuidGenerator.cpp
     ${CMAKE_SOURCE_DIR}/main.cpp
 )
 
+if (ZMQ_FOUND)
+    set (SOURCES ${SOURCES} ${CDBA_SRC_DIR}/cdbapp/ApplicationDatabaseInterface.cpp)
+else (ZMQ_FOUND)
+    set (SOURCES ${SOURCES} ${CDBA_SRC_DIR}/cdbapp/ApplicationDatabaseInterfaceNoZmq.cpp)
+endif (ZMQ_FOUND)
+
 include_directories(${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/include
     ${CDBA_INCLUDE_DIR}
     ${UUID_INCLUDE_DIRS}
-    ${ZMQ_INCLUDE_DIRS}
 )
 
 # Until we get a universal binary version of libuuid, we need to build for i386 in order for inclusion in Max5 external development
@@ -43,9 +47,13 @@ endif(BUILD_LIBRARY_AS_STATIC)
 
 target_link_libraries(cdbapp
     ${UUID_LIBRARIES}
-    ${ZMQ_LIBRARIES}
     ${JSONCPP_LIBRARY}
 )
+
+if (ZMQ_FOUND)
+    include_directories(${ZMQ_INCLUDE_DIRS})
+    target_link_libraries(cdbapp ${ZMQ_LIBRARIES})
+endif (ZMQ_FOUND)
 
 option(EXAMPLE_EXECUTABLE "Will compile an example executable for testing
 purposes" OFF)

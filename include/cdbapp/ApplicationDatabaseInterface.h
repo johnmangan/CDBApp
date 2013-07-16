@@ -18,7 +18,7 @@ namespace zmq {
     class message_t;
     class context_t;
     class socket_t;
-};
+}
 
 class ApplicationDatabaseInterface
 {
