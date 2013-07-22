@@ -11,10 +11,14 @@
 
 #include <string>
 
+namespace cdb {
+
 namespace UuidGenerator {
 
     std::string GenerateUuid(void);
 
 };
+
+}
 
 #endif /*UUID_GEN_H_*/

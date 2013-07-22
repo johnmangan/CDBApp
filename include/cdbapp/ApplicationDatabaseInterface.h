@@ -20,6 +20,8 @@ namespace zmq {
     class socket_t;
 }
 
+namespace cdb {
+
 class ApplicationDatabaseInterface
 {
 public:
@@ -64,5 +66,7 @@ private:
     zmq::socket_t*      mZmqDealer;
 };
 
+}
 
 #endif /* APPLICATIONDATABASEINTERFACE_H_ */
+

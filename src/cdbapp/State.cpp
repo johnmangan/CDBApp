@@ -11,6 +11,8 @@
 #include <cdbapp/State.h>
 #include <json/json.h>
 
+using namespace cdb;
+
 #define STREAM_PRECISION 15
 
 /*static*/ State::VARIABLES State::sEmptyVariables;

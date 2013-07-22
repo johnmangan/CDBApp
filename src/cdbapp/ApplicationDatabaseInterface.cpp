@@ -16,6 +16,8 @@
 #include <cdbapp/ApplicationDatabaseInterface.h>
 #include <cdbapp/UuidGenerator.h>
 
+using namespace cdb;
+
 ApplicationDatabaseInterface::ApplicationDatabaseInterface(void)
 {
     mLoadRequestPending = false;

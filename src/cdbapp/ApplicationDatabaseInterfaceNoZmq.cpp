@@ -19,6 +19,8 @@ namespace zmq {
     class socket_t {};
 }
 
+using namespace cdb;
+
 ApplicationDatabaseInterface::ApplicationDatabaseInterface(void)
 {
     mLoadRequestPending = false;

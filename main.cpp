@@ -9,6 +9,8 @@
 #include <cdbapp/ApplicationDatabaseInterface.h>
 #include <cdbapp/State.h>
 
+using namespace cdb;
+
 State state1, state2;
 
 void

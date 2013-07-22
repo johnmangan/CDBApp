@@ -17,6 +17,8 @@
 #include <json/json.h>
 #include <cdbapp/UuidGenerator.h>
 
+namespace cdb {
+
 class State
 {
 public:
@@ -97,4 +99,7 @@ private:
     static VARIABLES    sEmptyVariables;
 };
 
+}
+
 #endif /* STATE_H_ */
+

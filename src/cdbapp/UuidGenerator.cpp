@@ -10,6 +10,8 @@
 #include <uuid/uuid.h>
 #include <cdbapp/UuidGenerator.h>
 
+namespace cdb {
+
 namespace UuidGenerator {
 
     std::string GenerateUuid(void)
@@ -22,5 +24,7 @@ namespace UuidGenerator {
         return std::string(str_id);
     }
 
-};
+}
+
+}
 
